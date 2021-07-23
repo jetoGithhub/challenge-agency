@@ -16,11 +16,11 @@ export class EditControllerService {
   ) { }
 
   get agency() {
-    return this.state.agencyModel$
+    return this.state.agency;
   }
 
   async upsert(agency: AgencyEntity) {
-    const state = await this.state.agencyModel$.toPromise();
+    const state = await this.state.agency
     if(state) {
       return this.useCase.update(agency);
     }
@@ -29,7 +29,6 @@ export class EditControllerService {
   }
 
   goToList() {
-    this.state.add(null);
     this.route.navigate(['agency/list']);
   }
 

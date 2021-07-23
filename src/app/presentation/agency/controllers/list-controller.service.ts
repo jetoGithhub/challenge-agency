@@ -41,7 +41,7 @@ export class ListControllerService {
       })
     }
 
-    return this.agency.info = { ...this.agency.original };
+    return this.agency.info = this.agency.original;
   }
 
   goToAgencyform(agency: AgencyEntity | void) {

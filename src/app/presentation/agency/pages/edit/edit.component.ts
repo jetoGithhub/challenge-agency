@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AgencyEntity } from 'src/app/core/entities/angency.entity';
 import { EditControllerService } from '../../controllers/edit-controller.service';
 
@@ -7,19 +7,15 @@ import { EditControllerService } from '../../controllers/edit-controller.service
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
 })
-export class EditComponent implements AfterViewInit {
+export class EditComponent implements OnInit {
   agency: AgencyEntity = {} as AgencyEntity;
   constructor(
     private editController: EditControllerService,
-    private cd: ChangeDetectorRef,
   ) { }
 
-  ngAfterViewInit() {
-    this.editController.agency.subscribe(data => {
-      this.agency = { ...data } as AgencyEntity;
-      this.cd.detectChanges();
-      console.log('kkkkk', data, this.agency);
-    })
+  ngOnInit(): void {
+    console.log(this.editController.agency);
+    this.agency = { ...this.editController.agency }
   }
 
   submitAgency(evt: any) {

@@ -15,6 +15,7 @@ import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/mat
 import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgencyFormComponent } from './components/agency-form/agency-form.component';
+import { AgencyStateService } from 'src/app/data/state/agency-state.service';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { AgencyFormComponent } from './components/agency-form/agency-form.compon
     MatInputModule,
   ],
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline '}}
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline '}},
+    AgencyStateService,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

@@ -19,7 +19,6 @@ export class AgencyFormComponent {
 
   @Input()
   set agency(value: AgencyEntity | null | undefined) {
-    console.log(value);
     if(value) {
       this.agencyForm.patchValue(value);
     }
@@ -36,7 +35,5 @@ export class AgencyFormComponent {
     if(this.agencyForm.valid) {
       return this.submit.emit({...this.agencyForm.value})
     }
-
-    this.agencyForm.markAsDirty()
   }
 }
