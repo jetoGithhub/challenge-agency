@@ -1,0 +1,19 @@
+:host {
+  .container-agency {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    &_card {
+      margin-top: 64px;
+      width: 980px;
+    }
+
+    button[mat-fab] {
+      position: fixed;
+      right: 25%;
+      bottom: 25px;
+    }
+  }
+}

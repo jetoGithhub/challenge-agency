@@ -1,0 +1,11 @@
+<app-agency-toolbar
+  title="Detalle de Agencia"
+></app-agency-toolbar>
+{{agency | json}}
+<div class="container-agency-form">
+  <app-agency-form [agency]="agency"
+    (back)="goToList()"
+    (submit)="submitAgency($event)"
+  ></app-agency-form>
+</div>
+
