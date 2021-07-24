@@ -5,7 +5,10 @@
 ></app-agency-toolbar>
 <div class="container-agency" >
   <div class="container-agency_card" >
-    <app-agency-card *ngFor="let item of agency" [agency]="item" (clicked)="editAgency($event)"></app-agency-card>
+    <app-agency-card
+      *ngFor="let item of agency; let position = index"
+      [agency]="item"
+      (clicked)="editAgency(position)"></app-agency-card>
     <button mat-fab color="primary" (click)="createAgency()">
       <mat-icon>add</mat-icon>
     </button>

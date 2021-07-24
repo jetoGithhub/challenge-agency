@@ -27,8 +27,9 @@ export class ListComponent implements OnInit {
     console.log(this.sortFibonacci(filterFibonacci));
   }
 
-  editAgency(agency: AgencyEntity) {
-    this.agencyController.goToAgencyform(agency);
+  editAgency(id: number) {
+    const data = {id, ...this.agency[id]}
+    this.agencyController.goToAgencyform(data);
   }
 
   createAgency() {

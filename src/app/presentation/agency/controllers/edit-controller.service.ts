@@ -19,17 +19,21 @@ export class EditControllerService {
     return this.state.agency;
   }
 
-  async upsert(agency: AgencyEntity) {
-    const state = await this.state.agency
-    if(state) {
-      return this.useCase.update(agency);
+  async upsert(newAgency: AgencyEntity) {
+    const state = await this.state.agency;
+    console.log(state.agencia);
+    if(state?.agencia) {
+      return this.useCase.update({...state, ...newAgency});
     }
 
-    return this.useCase.create()
+    return this.useCase.create(newAgency)
   }
 
   goToList() {
     this.route.navigate(['agency/list']);
   }
 
+  destroy() {
+    this.state.add({} as AgencyEntity);
+  }
 }

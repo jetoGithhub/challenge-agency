@@ -29,19 +29,24 @@ export class AgencyUseCase {
     );
   }
 
-  create() {}
+  create(agency: AgencyEntity) {
+    const agencies = this.agencyStorageRepository.getItem() || [];
+    agencies.push(agency);
+
+    this.agencyStorageRepository.setItem(agencies);
+
+    console.log(agencies, agency);
+
+    return agencies;
+  }
 
   update(agency: AgencyEntity) {
-    const agencies = this.agencyStorageRepository.getItem();
-    const newAgencies = agencies?.map((data) => {
-      if(data.agencia === agency.agencia) {
-        return { ...data, ...agency };
-      }
+    const { id, ...rest} = agency;
+    const agencies = this.agencyStorageRepository.getItem() || [];
+    agencies[Number(id)] = rest;
 
-      return data;
-    });
-    this.agencyStorageRepository.setItem(newAgencies);
+    this.agencyStorageRepository.setItem(agencies);
 
-    return newAgencies;
+    return agencies;
   }
 }

@@ -2,11 +2,15 @@
   .container-agency-form {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 64px;
     app-agency-form {
       width: 50%;
+    }
+    google-map {
+      margin-top: 2.0rem;
     }
   }
 }

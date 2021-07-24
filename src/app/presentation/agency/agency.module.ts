@@ -16,6 +16,7 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgencyFormComponent } from './components/agency-form/agency-form.component';
 import { AgencyStateService } from 'src/app/data/state/agency-state.service';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { AgencyStateService } from 'src/app/data/state/agency-state.service';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    GoogleMapsModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline '}},

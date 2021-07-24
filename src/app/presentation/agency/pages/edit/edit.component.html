@@ -6,5 +6,19 @@
     (back)="goToList()"
     (submit)="submitAgency($event)"
   ></app-agency-form>
+  <google-map
+    height="300px"
+    [options]="options"
+    [center]="center"
+  >
+  <map-marker
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [label]="marker.label"
+    [title]="marker.title"
+    [options]="marker.options"
+  >
+  </map-marker>
+</google-map>
 </div>
 
