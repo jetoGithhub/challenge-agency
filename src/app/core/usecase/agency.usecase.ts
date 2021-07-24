@@ -33,15 +33,13 @@ export class AgencyUseCase {
 
   update(agency: AgencyEntity) {
     const agencies = this.agencyStorageRepository.getItem();
-
     const newAgencies = agencies?.map((data) => {
       if(data.agencia === agency.agencia) {
-        return {...data, ...agency};
+        return { ...data, ...agency };
       }
 
       return data;
     });
-
     this.agencyStorageRepository.setItem(newAgencies);
 
     return newAgencies;

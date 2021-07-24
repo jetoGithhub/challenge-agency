@@ -15,10 +15,4 @@ export class AgencyHttpRepository {
   find(): Observable<AgencyEntity[]> {
     return this.http.get<AgencyEntity[]>(this.enpoint, { observe: 'body' })
   }
-
-  findById() {}
-
-  create() {}
-
-  edit() {}
 }
