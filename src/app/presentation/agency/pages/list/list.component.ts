@@ -42,15 +42,10 @@ export class ListComponent implements OnInit {
 
   createFibonacci(maxLenght: number) {
     let next: number = 1;
-    let serie: number[] = [];
+    let serie: number[] = [next];
     for(let i= 0; i <=maxLenght; i++) {
-     if(next === 1) {
-       serie.push(next)
-       next ++;
-     } else {
        serie.push(next);
        next = next + serie[serie.length - 2];
-     }
     }
 
     return serie;
