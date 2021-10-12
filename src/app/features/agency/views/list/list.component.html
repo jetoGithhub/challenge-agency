@@ -1,0 +1,23 @@
+<app-agency-toolbar
+  title="Agencias"
+  [showOption]="showOption"
+  (search)="presenter.findAgency($event)"
+></app-agency-toolbar>
+<div class="container-agency">
+  <div class="container-agency_card" *ngIf="!(presenter.isLoading$ | async)">
+    <app-agency-card
+      *ngFor="let item of presenter.agencies$ | async"
+      [agency]="item"
+    ></app-agency-card>
+    <button mat-fab color="primary">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <div *ngIf="(presenter.isLoading$ | async)" >
+      Cargando lista de agencias....
+  </div>
+  <div *ngIf="(presenter.agencies$ | async)?.length === 0 && !(presenter.isLoading$ | async)">
+    ¡No se encontraron resultados!
+  </div>
+
+</div>

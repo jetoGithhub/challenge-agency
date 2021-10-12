@@ -1,0 +1,27 @@
+
+<form class="agency-form" [formGroup]="agencyForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre de la Agencia</mat-label>
+    <input matInput formControlName="agencia" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Direccion</mat-label>
+    <input matInput  formControlName="direccion"/>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Distrito</mat-label>
+    <input matInput formControlName="distrito" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Latitud</mat-label>
+    <input matInput formControlName="lat" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Longitud</mat-label>
+    <input matInput formControlName="lon" />
+  </mat-form-field>
+</form>
+<div class="button-continer">
+  <button mat-stroked-button color="accent" (click)="backClicked()">Volver</button>
+  <button mat-stroked-button color="primary" (click)="sendForm()">Enviar</button>
+</div>

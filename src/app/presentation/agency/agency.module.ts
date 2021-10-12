@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { AgencyRoutingModule } from './agency-routing.module';
 import { AgencyComponent } from './agency.component';
-import { ListComponent } from './pages/list/list.component';
 import { EditComponent } from './pages/edit/edit.component';
 import { AgencyCardComponent } from './components/agency-card/agency-card.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AgencyFormComponent } from './components/agency-form/agency-form.component';
 import { AgencyStateService } from 'src/app/data/state/agency-state.service';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { ListComponent } from 'src/app/features/agency/views/list/list.component';
 
 
 @NgModule({
