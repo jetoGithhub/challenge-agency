@@ -1,3 +1,3 @@
 export interface RESTServices<T> {
-  find: () => T
+  find: () => T;
 }

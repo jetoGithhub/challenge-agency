@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { AgencyEntity } from '../core/domain/angency.entity';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AgencyStateService {
-  private agencyModel: AgencyEntity = {} as AgencyEntity
+  private agencyModel: AgencyEntity = {} as AgencyEntity;
 
   get agency() {
     return this.agencyModel;
@@ -15,8 +15,7 @@ export class AgencyStateService {
     this.agencyModel = { ...data };
   }
 
-  reset() { 
+  reset() {
     this.agencyModel = {} as AgencyEntity;
   }
-
 }

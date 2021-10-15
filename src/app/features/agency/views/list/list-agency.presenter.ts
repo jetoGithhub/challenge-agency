@@ -25,7 +25,8 @@ export class ListAgencyPresenter {
     private services: AgencyServices,
     private router: Router,
     private store: AgencyStateService,
-    private storage: LocalStorageServices ) {}
+    private storage: LocalStorageServices
+  ) {}
 
   async loadAgencies() {
     const resp = await listAgencyUseCase(this.services, this.storage);
@@ -41,8 +42,8 @@ export class ListAgencyPresenter {
   }
 
   goToFormAgency(id: number | void, agency: AgencyEntity | void) {
-    if(agency && id) {
-      this.store.add({id, ...agency});
+    if (agency && id) {
+      this.store.add({ id, ...agency });
     }
     this.router.navigateByUrl('agency/edit');
   }

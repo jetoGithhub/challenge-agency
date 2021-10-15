@@ -6,17 +6,18 @@ import { RESTServices } from 'src/app/features/agency/core/domain/rest-services.
 import { AgencyEntity } from '../core/domain/angency.entity';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AgencyServices implements RESTServices<Observable<AgencyEntity[]>>{
-  enpoint = 'assets/agency.json'
+export class AgencyServices
+  implements RESTServices<Observable<AgencyEntity[]>>
+{
+  enpoint = 'assets/agency.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  find():Observable<AgencyEntity[]> {
-    return this.http.get<AgencyEntity[]>(this.enpoint, { observe: 'body' })
-    .pipe(
-      delay(2000)
-    )
+  find(): Observable<AgencyEntity[]> {
+    return this.http
+      .get<AgencyEntity[]>(this.enpoint, { observe: 'body' })
+      .pipe(delay(2000));
   }
 }

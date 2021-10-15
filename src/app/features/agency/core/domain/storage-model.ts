@@ -3,19 +3,19 @@ export abstract class Storage<T> {
   item = '';
 
   getItem(): T | null {
-    if(this.storage.getItem(this.itemSypher)) {
+    if (this.storage.getItem(this.itemSypher)) {
       return JSON.parse(this.storage.getItem(this.itemSypher) ?? '');
     }
 
     return null;
   }
 
-  setItem<T>(value:T) {
-    if(!value) {
+  setItem<T>(value: T) {
+    if (!value) {
       throw new Error('Set storage Value undefined');
     }
 
-    this.storage.setItem(this.itemSypher, JSON.stringify(value))
+    this.storage.setItem(this.itemSypher, JSON.stringify(value));
   }
 
   exist(): Boolean {
@@ -23,8 +23,11 @@ export abstract class Storage<T> {
   }
 
   get itemSypher() {
-    return this.item.split('').map((element, index) => {
-      return String(index*3) + element;
-    }).join('');
+    return this.item
+      .split('')
+      .map((element, index) => {
+        return String(index * 3) + element;
+      })
+      .join('');
   }
 }

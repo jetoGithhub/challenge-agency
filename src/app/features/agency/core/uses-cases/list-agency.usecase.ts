@@ -6,7 +6,7 @@ import { Storage } from '../domain/storage-model';
 export const listAgencyUseCase = async (
   agencyServices: RESTServices<Observable<AgencyEntity[]>>,
   storage: Storage<AgencyEntity[]>,
-  reloadAgencies = false,
+  reloadAgencies = false
 ) => {
   if (storage.exist() && !reloadAgencies) {
     return storage.getItem() ?? [];

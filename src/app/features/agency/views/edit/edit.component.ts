@@ -5,7 +5,7 @@ import { EditAgencyPresenter } from './edit-agency.presenter';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+  styleUrls: ['./edit.component.scss'],
 })
 export class EditComponent {
   agency: AgencyEntity = {} as AgencyEntity;
@@ -15,12 +15,10 @@ export class EditComponent {
     disableDoubleClickZoom: true,
     maxZoom: 42,
     minZoom: 6,
-  }
+  };
   center: google.maps.LatLngLiteral = {} as google.maps.LatLngLiteral;
   markers: any = [];
-  constructor(
-    public presenter: EditAgencyPresenter,
-  ) { }
+  constructor(public presenter: EditAgencyPresenter) {}
 
   ngOnInit(): void {
     // this.agency = { ...this.editController.agency };
@@ -32,7 +30,6 @@ export class EditComponent {
     //     }
     //   });
     // }
-
     // if(this.agency) {
     //   this.addMarker();
     //   this.center = {
@@ -55,5 +52,4 @@ export class EditComponent {
     //   options: { animation: google.maps.Animation.BOUNCE },
     // });
   }
-
 }

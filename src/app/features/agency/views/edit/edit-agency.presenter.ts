@@ -13,7 +13,7 @@ export class EditAgencyPresenter {
   constructor(
     public store: AgencyStateService,
     private router: Router,
-    private storage: LocalStorageServices,
+    private storage: LocalStorageServices
   ) {}
 
   goToAgencyList() {
@@ -22,13 +22,12 @@ export class EditAgencyPresenter {
   }
 
   submit(agency: AgencyEntity) {
-    if(agency?.id) {
+    if (agency?.id) {
       updateAgencyUseCase(agency, this.storage);
     } else {
-      createAgencyUseCase(agency, this.storage)
+      createAgencyUseCase(agency, this.storage);
     }
 
     this.goToAgencyList();
   }
-
 }
