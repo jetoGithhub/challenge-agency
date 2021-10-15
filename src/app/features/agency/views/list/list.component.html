@@ -6,10 +6,11 @@
 <div class="container-agency">
   <div class="container-agency_card" *ngIf="!(presenter.isLoading$ | async)">
     <app-agency-card
-      *ngFor="let item of presenter.agencies$ | async"
+      *ngFor="let item of (presenter.agencies$ | async); let key =index"
       [agency]="item"
+      (clicked)="presenter.goToFormAgency(key, $event)"
     ></app-agency-card>
-    <button mat-fab color="primary">
+    <button mat-fab color="primary" (click)="presenter.goToFormAgency()">
       <mat-icon>add</mat-icon>
     </button>
   </div>

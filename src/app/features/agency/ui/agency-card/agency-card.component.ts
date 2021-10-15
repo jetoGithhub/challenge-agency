@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { AgencyEntity } from 'src/app/core/entities/angency.entity';
+import { AgencyEntity } from '../../core/domain/angency.entity';
 
 @Component({
   selector: 'app-agency-card',

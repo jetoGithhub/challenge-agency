@@ -1,4 +1,5 @@
 export interface AgencyEntity {
+  id?: number;
   agencia: string;
   distrito: string;
   provincia: string;
@@ -6,5 +7,5 @@ export interface AgencyEntity {
   direccion: string;
   lat: number;
   lon: number;
-  [key: string]: string | number;
+  [key: string]: string | number | undefined;
 }

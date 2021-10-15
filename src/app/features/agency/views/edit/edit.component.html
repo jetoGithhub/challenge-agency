@@ -2,9 +2,9 @@
   title="Detalle de Agencia"
 ></app-agency-toolbar>
 <div class="container-agency-form">
-  <app-agency-form [agency]="agency"
-    (back)="goToList()"
-    (submit)="submitAgency($event)"
+  <app-agency-form [agency]="presenter?.store?.agency"
+    (back)="presenter.goToAgencyList()"
+    (submit)="presenter.submit($event)"
   ></app-agency-form>
   <google-map
     height="300px"

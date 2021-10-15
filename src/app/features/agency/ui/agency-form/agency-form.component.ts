@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AgencyEntity } from 'src/app/core/entities/angency.entity';
+import { AgencyEntity } from '../../core/domain/angency.entity';
 
 @Component({
   selector: 'app-agency-form',
@@ -8,7 +8,7 @@ import { AgencyEntity } from 'src/app/core/entities/angency.entity';
   styleUrls: ['./agency-form.component.scss']
 })
 export class AgencyFormComponent {
-
+  private _agency: AgencyEntity = {} as AgencyEntity;
   agencyForm = new FormGroup({
     agencia: new FormControl('', [Validators.required]),
     distrito: new FormControl('', [Validators.required]),
@@ -20,6 +20,7 @@ export class AgencyFormComponent {
   @Input()
   set agency(value: AgencyEntity | null | undefined) {
     if(value) {
+      this._agency = value;
       this.agencyForm.patchValue(value);
     }
   }
@@ -30,10 +31,20 @@ export class AgencyFormComponent {
   constructor() { }
   backClicked() {
     this.back.emit();
+    this.reset();
   }
   sendForm() {
     if(this.agencyForm.valid) {
-      return this.submit.emit({...this.agencyForm.value})
+      this.submit.emit({
+        ...this._agency,
+        ...this.agencyForm.value
+      });
+      this.reset();
     }
+  }
+
+  reset() {
+    this._agency = {} as AgencyEntity;
+    this.agencyForm.reset();
   }
 }
